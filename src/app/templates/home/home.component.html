@@ -1,0 +1,36 @@
+<section id="landing-bg">
+    <div class="bg-black">
+        <div class="w100 text-center">
+            <h1>Bem vindo à plataforma de E-learning</h1>
+        </div>
+
+        <div class="text-1 d-flex center">
+            <p>Sabemos que estudar tecnologia não é facil, então, aqui você encontra diversas trilhas para te guiarem no
+                seu aprendizado</p>
+        </div>
+        <div class="p-left-10">
+            <button mat-raised-button>Saiba mais</button>
+        </div>
+    </div>
+</section>
+<main>
+    <div class="p-top-20 d-flex center">
+        <h2 style="font-size: 24px;">Top trilhas da semana</h2>
+    </div>
+    <div class="p-top-20 d-flex center container">
+        <mat-card class="example-card" *ngFor="let trilha of trails">
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                alt="Photo of a Shiba Inu">
+            <div class="d-flex center">
+                <mat-card-title>{{trilha.nome}}</mat-card-title>
+            </div>
+            <div class="d-flex center">
+
+                <mat-card-subtitle>{{trilha.categoria}}</mat-card-subtitle>
+            </div>
+            <mat-card-actions class="d-flex center">
+                <button mat-raised-button color="primary">Ver mais</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</main>

@@ -1,0 +1,49 @@
+<main>
+    <mat-card class="signup-card">
+        <mat-card-title>Cadastro</mat-card-title>
+        <mat-card-content>
+            <form>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nome</mat-label>
+                        <input matInput [formControl]="username" placeholder="John Doe" required>
+                        <mat-error *ngIf="username.invalid">{{getUsernameErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput [formControl]="email" placeholder="nome@exemplo.com" required>
+                        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Senha</mat-label>
+                        <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Confirme sua senha</mat-label>
+                        <input matInput [formControl]="checkPassword" [type]="hide ? 'password' : 'text'" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="checkPassword.hasError">{{getCheckPasswordErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </p>
+                <section>
+                    <mat-checkbox>Li e aceito os termos e condições.</mat-checkbox>
+                </section>
+                <p id="submit">
+                    <button mat-raised-button (click)="submit()" color="primary">Cadastrar</button>
+                </p>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</main>
