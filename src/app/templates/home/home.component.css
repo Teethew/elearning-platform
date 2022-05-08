@@ -11,8 +11,51 @@
     padding-top: 0;
 }
 
+#learn-bg {
+  width: 100vw;
+  height: 60vh;
+
+  background-image: url(../../../assets/pexels-anastasiya-gepp-1462630.webp);
+  background-size: cover;
+
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+  /*align-items: center;*/
+  padding-top: 0;
+}
+
+#learn-bg div h1 {
+  text-shadow: black 0 0 10px;
+  font-size: 35px;
+  color: white;
+  line-height: 5.5vw;
+
+}
+
+#learn-bg div p {
+  width: 90vw;
+  text-shadow: black 0 0 10px;
+  font-size: 22px;
+  color: white;
+  line-height: 25px;
+}
+
+/*img {*/
+/*    width: 375px;*/
+/*    height: 375px;*/
+/*}*/
+
 .text-1 {
     width: 100vw;
+}
+
+.f-start {
+  align-self: flex-start;
+}
+
+.f-end {
+  align-self: flex-end;
 }
 
 .bg-black {
@@ -25,6 +68,18 @@
     text-align: center;
 }
 
+.h-100 {
+  height: 100%;
+}
+
+.h-80 {
+  height: 60%;
+}
+
+.w50 {
+  width: 50vw;
+}
+
 .w100 {
     width: 100vw;
 }
@@ -34,8 +89,16 @@
     padding-left: 5vw;
 }
 
+.p-20 {
+  padding: 20px;
+}
+
 .p-top-20 {
     padding-top: 8vh;
+}
+
+.p-top-10 {
+  padding-top: 4vh;
 }
 
 #landing-bg div h1 {

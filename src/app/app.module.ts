@@ -20,6 +20,11 @@ import { HomeComponent } from './templates/home/home.component';
 import { ExploreComponent } from './templates/explore/explore.component';
 import { TrailCardComponent } from './components/trail-card/trail-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PlaylistComponent } from './templates/playlist/playlist.component';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { SafePipe } from './safe.pipe';
+import {MatDividerModule} from "@angular/material/divider";
+import { FooterComponent } from './templates/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,10 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     HomeComponent,
     ExploreComponent,
-    TrailCardComponent
+    TrailCardComponent,
+    PlaylistComponent,
+    SafePipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

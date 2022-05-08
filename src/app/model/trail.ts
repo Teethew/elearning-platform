@@ -5,11 +5,22 @@
 //   "categoria" VARCHAR(100),
 //   "fk_id_video" INT
 
+import {IVideo} from "./video";
+
+export interface IListTrail {
+    id: number,
+    owner: number,
+    nome: string,
+    categoria: string,
+    capa: string
+}
+
 export interface ITrail {
     id: number,
     nome: string,
-    comentarios: string[],
+    owner: string,
+    capa: string,
     categoria: string,
     //videos: IVideo[]
-    videos: string[]
+    Videos: IVideo[]
 }

@@ -1,0 +1,30 @@
+<div class="d-flex center container">
+  <div class="video-container">
+    <h1 class="text-center">{{this.videos[0].nome}}</h1>
+    <div class="yt-video">
+      <iframe [src]="'https:\/\/www.youtube.com\/embed\/' + this.videoIds[0] | safe" title="YouTube video player"
+               frameborder="0"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+               allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  <div class="d-flex center container d-column b-shadow">
+    <h2>{{trail.nome}}</h2>
+    <div class="d-flex center">
+      <p class="m-0">Favoritar trilha</p>
+      <app-button-icon [name]="'star'"></app-button-icon>
+    </div>
+    <div class="d-flex center">
+      <p class="m-0">Denunciar trilha</p>
+      <app-button-icon [name]="'heart_broken'"></app-button-icon>
+    </div>
+    <mat-card *ngFor="let video of this.videos; let i = index" class="example-card">
+      <mat-card-content>
+        <img width="250px" src="https://i.ytimg.com/vi_webp/{{this.videoIds[i]}}/hqdefault.webp">
+        <p class="text-center"><b>{{video ? video.nome : ""}}</b></p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

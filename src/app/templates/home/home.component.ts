@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ITrail } from 'src/app/model/trail';
+import { Observable } from 'rxjs';
+import { IListTrail, ITrail } from 'src/app/model/trail';
 
 @Component({
   selector: 'app-home',
@@ -8,38 +10,16 @@ import { ITrail } from 'src/app/model/trail';
 })
 export class HomeComponent implements OnInit {
 
-  trails!: ITrail[];
+  trails$!: Observable<IListTrail[]>;
 
-  constructor() { }
+  constructor(private readonly http: HttpClient) { }
 
   ngOnInit(): void {
-    this.trails = this.listTrails()
+    this.trails$ = this.listTrails()
   }
 
-  listTrails(): ITrail[] {
-    return [
-      {
-        id: 1,
-        nome: "Spring Boot Masterclass",
-        comentarios: [],
-        categoria: "Desenvolvimento Web",
-        videos: []
-      },
-      {
-        id: 2,
-        nome: "Angular 12 Desbravado",
-        comentarios: [],
-        categoria: "Desenvolvimento Web",
-        videos: []
-      },
-      {
-        id: 3,
-        nome: "Rust: subindo o baixo nível",
-        comentarios: [],
-        categoria: "Engenharia de sistemas",
-        videos: []
-      }
-    ]
+  listTrails(): Observable<IListTrail[]> {
+    return this.http.get<IListTrail[]>('http://localhost:9001/trails')
   }
 
 }

@@ -1,36 +1,73 @@
 <section id="landing-bg">
-    <div class="bg-black">
-        <div class="w100 text-center">
-            <h1>Bem vindo à plataforma de E-learning</h1>
-        </div>
-
-        <div class="text-1 d-flex center">
-            <p>Sabemos que estudar tecnologia não é facil, então, aqui você encontra diversas trilhas para te guiarem no
-                seu aprendizado</p>
-        </div>
-        <div class="p-left-10">
-            <button mat-raised-button>Saiba mais</button>
-        </div>
+  <div class="bg-black">
+    <div class="w100 text-center">
+      <h1>Bem vindo à plataforma de E-learning</h1>
     </div>
+
+    <div class="text-1 d-flex center">
+      <p>Sabemos que estudar tecnologia não é facil, então, aqui você encontra diversas trilhas para te guiarem no
+        seu aprendizado</p>
+    </div>
+    <div class="p-left-10">
+      <button mat-raised-button>Saiba mais</button>
+    </div>
+  </div>
 </section>
 <main>
-    <div class="p-top-20 d-flex center">
-        <h2 style="font-size: 24px;">Top trilhas da semana</h2>
-    </div>
-    <div class="p-top-20 d-flex center container">
-        <mat-card class="example-card" *ngFor="let trilha of trails">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                alt="Photo of a Shiba Inu">
-            <div class="d-flex center">
-                <mat-card-title>{{trilha.nome}}</mat-card-title>
-            </div>
-            <div class="d-flex center">
+  <div class="p-top-20 d-flex center">
+    <h2 style="font-size: 24px;">Top trilhas da semana</h2>
+  </div>
+  <div class="p-top-20 d-flex center container">
+    <mat-card class="example-card" *ngFor="let trilha of trails$ | async | slice:0:3; let i = index">
+      <img mat-card-xl-image src="{{trilha.capa}}"
+           alt="Photo of a Shiba Inu">
+      <div style="margin: 0; padding: 10px" class="d-flex center">
+        <mat-icon>thumb_up</mat-icon>
+        <p style="margin: 0; padding: 6px">{{75 - i*i}}</p>
+      </div>
+      <div class="d-flex center">
+        <mat-card-title>{{trilha.nome}}</mat-card-title>
+      </div>
+      <div class="d-flex center">
 
-                <mat-card-subtitle>{{trilha.categoria}}</mat-card-subtitle>
-            </div>
-            <mat-card-actions class="d-flex center">
-                <button mat-raised-button color="primary">Ver mais</button>
-            </mat-card-actions>
-        </mat-card>
+        <mat-card-subtitle>{{trilha.categoria}}</mat-card-subtitle>
+      </div>
+      <mat-card-actions class="d-flex center">
+        <button mat-raised-button color="primary" routerLink="/playlist" [queryParams]="{id: trilha.id}">Ver mais
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <section id="learn-bg">
+    <div class="h-100">
+      <div class="w100 f-start p-left-10">
+        <h1>Aprenda contribuindo</h1>
+      </div>
+      <div class="h-80"></div>
+      <div class="text-1 f-end p-left-10">
+        <p>Contribua organizando conte&uacute;do para outros estudantes e distribuindo o que aprendeu</p>
+      </div>
     </div>
+  </section>
+  <div class="d-flex center p-top-20">
+    <img src="../../../assets/360_F_214921193_DYLHYsHxDiIrgF7k9AX4yPCVMbklm1Nq.jpg" alt="">
+    <div class="p-20">
+      <h1>Crie sua própria trilha</h1>
+      <p>This is a block of text to provide more information about this section and why you should click the button.</p>
+      <div class="p-top-10">
+        <button mat-raised-button color="primary">Clique aqui</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex center p-top-20">
+    <div class="p-20">
+      <h1>Assista no seu ritmo</h1>
+      <p>This is a block of text to provide more information about this section and why you should click the button.</p>
+      <div class="p-top-10">
+        <button mat-raised-button color="primary">Clique aqui</button>
+      </div>
+    </div>
+    <img width="360px" src="../../../assets/pngwing.com.png" alt="">
+  </div>
 </main>
