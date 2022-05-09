@@ -8,6 +8,11 @@ export interface IUser {
     banned: boolean;
 }
 
+export interface ILoginUser {
+    email: string;
+    senha: string;
+}
+
 export interface IPostUser {
     nome: string;
     email: string;

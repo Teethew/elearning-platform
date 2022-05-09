@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IPostUser, IUser } from 'src/app/model/user';
 import { AuthService } from 'src/app/service/auth.service';
@@ -11,7 +12,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  public postUser!: IPostUser;
+  public postUser!: IUser;
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email, Validators.maxLength(100)]);
   username = new FormControl('', [Validators.required, Validators.maxLength(100)]);
@@ -19,7 +20,10 @@ export class SignupComponent implements OnInit {
   checkPassword = new FormControl('', [Validators.required, this.passwordMatches]);
 
 
-  constructor(readonly authService: AuthService) { }
+  constructor(
+    readonly authService: AuthService,
+    readonly router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -31,15 +35,25 @@ export class SignupComponent implements OnInit {
     }
 
     this.postUser = {
+      id: Math.floor(Math.random() * 1000),
       nome: this.username.value,
       email: this.email.value,
       senha: this.password.value,
-      ehadmin: false
+      ehadmin: false,
+      blocked: false,
+      banned: false
     }
 
     console.log(this.postUser)
-    this.authService.createUser(this.postUser).subscribe( (res: Observable<any>) => {
+    this.authService.createUser(this.postUser).subscribe( (res: boolean) => {
       console.log(res)
+      if (res == true) {
+        alert('Cadastro realizado com sucesso')
+        this.router.navigate(['login'])
+      } else {
+        alert('Ocorreu um erro durante o cadastro')
+        console.error(res)
+      }
     })
   }
 

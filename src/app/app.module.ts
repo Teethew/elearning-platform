@@ -25,6 +25,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { SafePipe } from './safe.pipe';
 import {MatDividerModule} from "@angular/material/divider";
 import { FooterComponent } from './templates/footer/footer.component';
+import { MyComponent } from './templates/my/my.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FooterComponent } from './templates/footer/footer.component';
     TrailCardComponent,
     PlaylistComponent,
     SafePipe,
-    FooterComponent
+    FooterComponent,
+    MyComponent
   ],
   imports: [
     BrowserModule,

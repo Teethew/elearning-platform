@@ -1,0 +1,31 @@
+<main>
+    <mat-card class="login-card">
+        <mat-card-title>Suas trilhas</mat-card-title>
+        <button mat-raised-button color="primary">Criar nova</button>
+        <mat-card-content>
+            <div class="p-top-20 d-flex center container">
+                <mat-card class="example-card" *ngFor="let trilha of trails$ | async | slice:0:1; let i = index">
+                  <img mat-card-xl-image src="{{trilha.capa}}"
+                       alt="Photo of a Shiba Inu">
+                  <div style="margin: 0; padding: 10px" class="d-flex center">
+                    <mat-icon>thumb_up</mat-icon>
+                    <p style="margin: 0; padding: 6px">{{75 - i*i}}</p>
+                  </div>
+                  <div class="d-flex center">
+                    <mat-card-title>{{trilha.nome}}</mat-card-title>
+                  </div>
+                  <div class="d-flex center">
+            
+                    <mat-card-subtitle>{{trilha.categoria}}</mat-card-subtitle>
+                  </div>
+                  <mat-card-actions class="d-flex center">
+                    <button mat-raised-button color="primary" routerLink="/edit">Editar
+                    </button>
+                    <button mat-raised-button color="warn" routerLink="/edit">Remover
+                    </button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+        </mat-card-content>
+    </mat-card>
+</main>

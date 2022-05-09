@@ -6,20 +6,20 @@
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>E-mail</mat-label>
-                        <input matInput name="email" placeholder="nome@exemplo.com">
+                        <input matInput [formControl]="username" name="email" placeholder="nome@exemplo.com">
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field appearance="standard">
                         <mat-label>Senha</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'">
+                        <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
                         <button mat-icon-button matSuffix (click)="hide = !hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                     </mat-form-field>
                 </p>
                 <p id="submit">
-                    <button mat-raised-button color="primary">Entrar</button>
+                    <button mat-raised-button (click)="submit()" color="primary">Entrar</button>
                 </p>
                 <p>Ainda não tem login? 
                     <button mat-button routerLink="/signup" color="primary">Cadastre-se aqui</button>
